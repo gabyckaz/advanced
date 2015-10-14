@@ -11,6 +11,8 @@ use Yii;
 class SignupForm extends Model
 {
     public $username;
+    public $first_name;
+    public $last_name;
     public $email;
     public $password;
 
@@ -21,7 +23,9 @@ class SignupForm extends Model
     {
         return [
             ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'required'],
+            ['username', 'required','message'=>'Piensa en uno divertido'],
+            ['first_name', 'required'],
+            ['last_name', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
@@ -45,6 +49,8 @@ class SignupForm extends Model
     {
         if ($this->validate()) {
             $user = new User();
+            $user-> first_name = $this->first_name;
+            $user-> last_name = $this->last_name;
             $user->username = $this->username;
             $user->email = $this->email;
             $user->setPassword($this->password);
