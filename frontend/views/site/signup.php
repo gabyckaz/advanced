@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
                 
-
+                   <?= $form->field($model, 'codigo_docente') ?>
                 <?= $form->field($model, 'username') ?>
 
                 <?= $form->field($model, 'email') ?>
