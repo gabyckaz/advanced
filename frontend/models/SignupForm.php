@@ -11,8 +11,6 @@ use Yii;
 class SignupForm extends Model
 {
     public $username;
-  //  public $first_name;
-  //  public $last_name;
     public $codigo_docente;
     public $email;
     public $password;
@@ -25,14 +23,9 @@ class SignupForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required','message'=>'Piensa en uno divertido'],
-<<<<<<< HEAD
-           // ['first_name', 'required'],
-          //  ['last_name', 'required'],
             ['codigo_docente', 'required'],
-=======
-            ['first_name', 'required'],
-            ['last_name', 'required'],
->>>>>>> f2292d47067353b0f62ffdc955aef8f55c847849
+          
+
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
