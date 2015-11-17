@@ -43,11 +43,24 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 
-    } else {
- //link a solicitudes
+    } 
+
+/*    if(Yii::$app->user->can( 'ver-usuario' ) ){
+      $menuItems[] = [
+            'label' => 'Usuarios(' . Yii::$app->user->identity->username . ')',
+            'url' => ['/user/index'],
+            'linkOptions' => ['data-method' => 'post']
+        ];
+
+    }
+
+*/
+
+    else {
+        //link a solicitudes
 
          $menuItems[] = [
-            'label' => 'Solicitudes(' . Yii::$app->user->identity->username . ')',
+            'label' => 'Solicitudes',
             'url' => ['/solicitud/index'],
             'linkOptions' => ['data-method' => 'post']
         ];
