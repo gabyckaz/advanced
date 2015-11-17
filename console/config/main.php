@@ -21,5 +21,17 @@ return [
             ],
         ],
     ],
+
+    /*  'authManager' => [
+                           'class' => 'yii\rbac\DbManager',
+                          'defaultRoles' => [
+                               'guest',
+                               'user',
+                              'admin'
+                              ],
+          ],
+
+*/
+
     'params' => $params,
 ];
