@@ -17,11 +17,12 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
    
-      <p><a class="btn btn-default" href="http://localhost/advanced/frontend/web/index.php?r=solicitud%2Fcreate/">Crear solicitud</a></p>
+    <!--  <p><a class="btn btn-default" href="http://localhost/advanced/frontend/web/index.php?r=solicitud%2Fcreate/">Crear solicitud</a></p>
 
                 <p><a class="btn btn-default" href="http://localhost/advanced/frontend/web/index.php?r=solicitud">Ver solitudes</a></p>
             </div>
         </div>
+        -->
 
     </div>
 </div>

@@ -60,15 +60,24 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new User();
+        // if(Yii::$app->user->can( 'crear-usuario' ) ){
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
+
+            $model = new User();
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        // }
+      //  else{
+      //      throw new ForbiddenHttpException;
+      //  }
+
+
     }
 
     /**

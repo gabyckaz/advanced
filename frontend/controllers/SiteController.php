@@ -148,18 +148,28 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+       // if(Yii::$app->user->can( 'crear-usuario' ) ){
+
+
+            $model = new SignupForm();
+            if ($model->load(Yii::$app->request->post())) {
+                if ($user = $model->signup()) {
+                    if (Yii::$app->getUser()->login($user)) {
+                        return $this->goHome();
+                    }
                 }
             }
-        }
 
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+            return $this->render('signup', [
+                'model' => $model,
+            ]);
+
+     //   }
+     //    else{
+      //              throw new ForbiddenHttpException;
+              //  }
+         //
+
     }
 
     /**

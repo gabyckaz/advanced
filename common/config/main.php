@@ -9,6 +9,7 @@ return [
         //para el rbac
          'authManager' => [
             'class' => 'yii\rbac\DbManager',
+            'defaultRoles'=>['guest'],
         ],
     ],
 

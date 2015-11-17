@@ -40,14 +40,29 @@ AppAsset::register($this);
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
-      //  $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+
     } else {
+ //link a solicitudes
+
+         $menuItems[] = [
+            'label' => 'Solicitudes(' . Yii::$app->user->identity->username . ')',
+            'url' => ['/solicitud/index'],
+            'linkOptions' => ['data-method' => 'post']
+        ];
+
         $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
             'url' => ['/site/logout'],
             'linkOptions' => ['data-method' => 'post']
         ];
+
+        //link al calendario
+
+       
+       
+
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

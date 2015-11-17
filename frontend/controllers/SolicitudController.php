@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use yii\web\ForbiddenHttpException;
+
 /**
  * SolicitudController implements the CRUD actions for Solicitud model.
  */
@@ -60,17 +62,27 @@ class SolicitudController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Solicitud();
+        if(Yii::$app->user->can( 'crear-solicitud' ) ){
 
-        if ($model->load(Yii::$app->request->post()) ) {
-            $model->solicitud_estado='1';
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->solicitud_id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+                 $model = new Solicitud();
+
+            if ($model->load(Yii::$app->request->post()) ) {
+                $model->solicitud_estado='1';
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->solicitud_id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+
         }
+        else{
+            throw new ForbiddenHttpException;
+        }
+
+
+       
     }
 
     /**
