@@ -16,7 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-      
+       <a class="btn btn-success" href="http://localhost/advanced/frontend/web/index.php?r=site%2Fsignup">Crear usuario</a>
+        
     </p>
 
     <?= GridView::widget([
