@@ -53,11 +53,11 @@ class Solicitud extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'local_id' => 'Local ID',
-            'hora_id' => 'Hora ID',
-            'motivo_id' => 'Motivo ID',
-            'dia_id' => 'Dia ID',
-            'materia_id' => 'Materia ID',
+            'local_id' => 'Local ',
+            'hora_id' => 'Hora ',
+            'motivo_id' => 'Motivo ',
+            'dia_id' => 'Dia ',
+            'materia_id' => 'Materia ',
             'solicitante' => 'Solicitante',
             'solicitud_estado' => 'Solicitud Estado',
             'solicitud_id' => 'Solicitud ID',

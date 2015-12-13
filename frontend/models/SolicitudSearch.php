@@ -64,11 +64,7 @@ class SolicitudSearch extends Solicitud
                 $query->joinWith('materia');
         
         $query->andFilterWhere([
-          //  'local_id' => $this->local_id,
-          //  'hora_id' => $this->hora_id,
-           // 'motivo_id' => $this->motivo_id,
-           // 'dia_id' => $this->dia_id,
-           // 'materia_id' => $this->materia_id,
+         
             'solicitud_id' => $this->solicitud_id,
         ]);
 

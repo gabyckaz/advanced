@@ -2,27 +2,58 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
+use yii\bootstrap\modal;
+use yii\helpers\Url;
+use kartik\export\ExportMenu;
+
 
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\SolicitudSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Solicituds';
+$this->title = 'Gestión de solicitudes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="solicitud-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <p>Blanca=Sol. hechas</p>
-    <p>Verde=Sol.aprovadas por Admin</p>
-    <p>Rojo=Denegada por admin</p>
+    <h3>Simbología de colores</h3>
+    <p>Blanca: Solicitudes hechas</p>
+    <p>Verde: Solicitudes aprobadas por el administrador</p>
+    <p>Rojo: Solicitudes denegadas por el administrador</p>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-          <?= Html::a('Create Solicitud', ['create'], ['class' => 'btn btn-success']) ?>
+          <?= Html::a('Crear Solicitud', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
   
+<?php 
+     
+     $gridColumns=[
+        'motivo.motivo_nombre',
+        'local.local_nombre',
+        'hora.hora_nombre',
+        'dia.dia_nombre',
+        'materia.materia_nombre',
+        'mensaje',
+
+     ];
+     //dirige a un dropdown menu
+     echo ExportMenu::widget([
+        'dataProvider'=>$dataProvider,
+        'columns'=>$gridColumns
+        ]);
+?>
+
+
+
+
+
+
+
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
